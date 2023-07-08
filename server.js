@@ -10,11 +10,7 @@ const app=express();
 app.use(cors())
 app.use(express.json())
 app.use(morgan("dev"))
-app.use(express.static(path.join(__dirname, "./client/build")))
 
-app.get( "*" , (req,res) =>{
-    res.sendFile(path.join(__dirname , "./client/build/index.html"))
-});
 //mongodb connection
 
 connectdb();
@@ -29,7 +25,11 @@ const blogRoutes =require("./routes/bolgRoutes")
 app.use("/api/v1/user",userRoutes);
 app.use("/api/v1/blog",blogRoutes);
 
+app.use(express.static(path.join(__dirname, "./client/build")))
 
+app.get( "*" , (req,res) =>{
+    res.sendFile(path.join(__dirname , "./client/build/index.html"))
+});
 
 const PORT = process.env.PORT || 8080
 app.listen(PORT, ()=>{
