@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    /* background-color: #fef9f5; */
+    background-color: #dedffc;
+
+}
+
+.hamburger{
+    display: none;
+}
+
+.spinner {
+    width: 100px;
+    height: 100px;
+    display: grid;
+    border: 4.5px solid #0000;
+    border-radius: 50%;
+    border-color: #dbdcef #0000;
+    animation: spinner-e04l1k 1s infinite linear;
+ }
+ 
+ .spinner::before,
+ .spinner::after {
+    content: "";
+    grid-area: 1/1;
+    margin: 2.2px;
+    border: inherit;
+    border-radius: 50%;
+ }
+ 
+ .spinner::before {
+    border-color: #474bff #0000;
+    animation: inherit;
+    animation-duration: 0.5s;
+    animation-direction: reverse;
+ }
+ 
+ .spinner::after {
+    margin: 8.9px;
+ }
+ 
+ @keyframes spinner-e04l1k {
+    100% {
+       transform: rotate(1turn);
+    }
+ }
+
+
+@media screen and (max-width:780px) {
+    .login{
+       width: 80%;
+    }
+    .register-input{
+        width: 100%;
+    }
+   
+    
+}
+
+
+@media screen and (max-width:625px){
+    .hamburger{
+        display: initial;
+    }
+    .links{
+        display: none;
+    }
+    .nodisplay{
+        /* display: none; */
+    }
+    .display{
+        display: initial;
+        color: white;
+        
+    }
+    .active-drawer{
+        color: red;
+       
+    }
+    .card{
+        width: 100%;
+    }
+    .main-card{
+        width: 90%;
+    }
+    .login{
+        width: 90%;
+    }
+    .blogcard{
+        width: 90%;
+    }
+}
